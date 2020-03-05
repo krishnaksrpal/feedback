@@ -1,5 +1,5 @@
 let form = document.getElementById("f1");
-form.onsubmit = (evt) => {
+form.onsubmit =  (evt) => {
     evt.preventDefault();
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -17,14 +17,20 @@ form.onsubmit = (evt) => {
         headers: myHeaders,
         body: raw
     };
+    // let data;
     let send;
-    fetch("/login", requestOptions).then(res => res.json()).then(dat => {
+    fetch("/login",requestOptions).then(res=>res.json()).then(dat=>{
         send = dat;
         afterFetch(send);
-    })
+    });
 }
-
-function afterFetch(send) {
-    console.log(send);
-    localStorage.setItem()
-}
+    function afterFetch(send){
+        console.log(send);
+        if(send.msg=="403"|| send.msg=="404"){
+            alert(send.err);
+        }
+        else{
+            localStorage.setItem("username",send.user.username);
+            location.replace("/batch.html");
+        }
+    }
