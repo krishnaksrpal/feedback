@@ -1,7 +1,7 @@
 let express = require("express");
 let fs = require("fs");
-
-
+let datastore = require("nedb")
+let batchdb = new datastore("./databases/batch.db");
 let app = express();
 app.use(express.json());
 app.use(express.static("root"));
@@ -35,4 +35,19 @@ app.post("/login", (req, res) => {
     res.send(send);
 
 })
-app.listen(3000, () => { console.log("listening on port 3000") });
+batchdb.insert({"name":"me"})
+app.get("/batches",(req,res)=>{
+    batchdb.insert({"name":"me"})
+    batchdb.find({},(err,docs)=>{
+        if(err){
+            console.log(err)
+            res.send(err);
+        }
+        else{
+            res.send(docs)
+        }
+    })
+    // res.send([{"name":"ok"}])
+    // res.send(batches)
+})
+app.listen(3001, () => { console.log("listening on port 3001") });
