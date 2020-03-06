@@ -2,6 +2,7 @@ let express = require("express");
 let fs = require("fs");
 let datastore = require("nedb")
 let batchdb = new datastore("./databases/batch.db");
+batchdb.loadDatabase();
 let app = express();
 app.use(express.json());
 app.use(express.static("root"));
@@ -35,9 +36,9 @@ app.post("/login", (req, res) => {
     res.send(send);
 
 })
-batchdb.insert({"name":"me"})
+// batchdb.insert({"name":"me"})
 app.get("/batches",(req,res)=>{
-    batchdb.insert({"name":"me"})
+    // batchdb.insert({"name":"me"})
     batchdb.find({},(err,docs)=>{
         if(err){
             console.log(err)
@@ -46,7 +47,9 @@ app.get("/batches",(req,res)=>{
         else{
             res.send(docs)
         }
+        
     })
+    // console.log("1");
     // res.send([{"name":"ok"}])
     // res.send(batches)
 })
