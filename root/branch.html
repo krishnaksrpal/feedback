@@ -30,13 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="login_account" href="./batch.html">Batch</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Branch</a>
+              <a class="nav-link" id="signup_logout" href="./branch.html">Branch</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="signup_logout" href="./signup.html">Semester</a>
@@ -82,10 +82,6 @@
        <section>
 
     <div class="card card-cascade narrower z-depth-1">
-          <div class="col-lg-5 col-md-6">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Branch">
-            <button style="height: 31px; width:30px;" class="btn btn-sm btn-primary ml-2 px-1"><i class="fas fa-search"></i> </button>
-          </div>
                 <div style="margin-top: 6px;" class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
   
                          
@@ -93,7 +89,7 @@
                          <a href="" class="white-text mx-3">Branch Entries</a>
   
                         <div>
-                          <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-pencil-alt mt-0">&nbsp;Add New</i></button>                        </div>
+                          <button type="button" id="newbtn" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-pencil-alt mt-0">&nbsp;Add New</i></button>                        </div>
   
                  </div>
             <!-- /Card image -->
@@ -102,7 +98,7 @@
   
                     <div class="table-responsive">
                           <!-- Table -->
-                      <div style="overflow:auto;height:300px;">
+                      <div style="overflow:auto;height:300px;" id="area">
                         <table border=1 align="center" id="myTable" style="width: 100%">
                           <tr align="center" class="header">
                       
@@ -297,7 +293,8 @@
     });
 
   </script>
-
+  <script src="./static/nav.js"></script>
+  <script src="./static/branch.js"></script>
 </body>
 
 </html>

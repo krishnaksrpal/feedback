@@ -1,6 +1,6 @@
 let batches;
 function feBatches(){
-    fetch("batches").then(res => res.json()).then(data => {
+    fetch("branches").then(res => res.json()).then(data => {
         console.log(data)
         batches = data;
         makeTable(data);
@@ -44,7 +44,7 @@ function buttonPressed(i){
     }
 }
 function feDelete(id){
-    fetch("/batches/"+id).then(res => res.json()).then(data => {
+    fetch("/branches/"+id).then(res => res.json()).then(data => {
         console.log(data)
     })
     feBatches();
@@ -57,29 +57,12 @@ btn.onclick = () => {
     let area = document.getElementById("area");
     str = "";
     str += "<form id='f2'><div class='row'>"
-    str += "<div class='col-4'><select id='type' class='custom-select'><option>odd</option><option>even</option></select></div>";
-    str += "<div class='col-4'><select id='season' disabled class='custom-select'><option>winter</option><option>summer</option></select></div>";
-    str += "<div class='col-4'><select id='year' class='custom-select'>";
-    for (let i = 2015; i < 2031; i++) {
-        str += "<option>" + i + "</option>";
-    }
-    str += "</select></div></div><br>";
-    str += "<button type='submit'>Submit</button>"
+    str += `<div class='col-4'><input type="text" id="name" placeholder="Branch Name" class="form-control"></div>`;
+    str += "<br><button type='submit'>Submit</button>"
     str += "</form>"
     newdiv= document.createElement("div");
     newdiv.innerHTML = str;
     area.append(newdiv);
-    // Material Select Initialization
-    $('.mdb-select').materialSelect();
-    let type = document.getElementById("type");
-    type.onchange = () => {
-        let season = document.getElementById("season")
-        if (type.value == "odd") {
-            season.value = "winter"
-        } else {
-            season.value = "summer"
-        }
-    }
     let form = document.getElementById("f2");
     form.onsubmit = (evt)=>{
         evt.preventDefault();
@@ -90,7 +73,7 @@ btn.onclick = () => {
 
 
 function fenewbatch(){
-    let name = document.getElementById("type").value+"-"+document.getElementById("season").value+"-"+document.getElementById("year").value
+    let name = document.getElementById("name").value;
     let data = {
         "name" : name
     }
@@ -106,7 +89,7 @@ function fenewbatch(){
     };
     // let data;
     let send;
-    fetch("/batches/new",requestOptions).then(res=>res.json()).then(dat=>{
+    fetch("/branches/new",requestOptions).then(res=>res.json()).then(dat=>{
         send = dat;
         if(send["msg"]=="ok"){
             feBatches();

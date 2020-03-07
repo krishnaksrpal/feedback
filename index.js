@@ -3,6 +3,8 @@ let fs = require("fs");
 let datastore = require("nedb")
 let batchdb = new datastore("./databases/batch.db");
 batchdb.loadDatabase();
+let branchdb = new datastore("./databases/branch.db");
+branchdb.loadDatabase();
 let app = express();
 app.use(express.json());
 app.use(express.static("root"));
@@ -52,5 +54,46 @@ app.get("/batches",(req,res)=>{
     // console.log("1");
     // res.send([{"name":"ok"}])
     // res.send(batches)
+})
+
+app.post("/batches/new",(req,res)=>{
+    batchdb.insert(req.body,()=>{
+        res.send({"msg":"ok"})
+    })
+})
+
+app.get("/batches/:id",(req,res)=>{
+    batchdb.remove({"_id":req.params["id"]},(err,numr)=>{
+        res.send({"msg":"ok"})
+    })
+})
+
+app.get("/branches",(req,res)=>{
+    // batchdb.insert({"name":"me"})
+    branchdb.find({},(err,docs)=>{
+        if(err){
+            console.log(err)
+            res.send(err);
+        }
+        else{
+            res.send(docs)
+        }
+        
+    })
+    // console.log("1");
+    // res.send([{"name":"ok"}])
+    // res.send(batches)
+})
+
+app.post("/branches/new",(req,res)=>{
+    branchdb.insert(req.body,()=>{
+        res.send({"msg":"ok"})
+    })
+})
+
+app.get("/branches/:id",(req,res)=>{
+    branchdb.remove({"_id":req.params["id"]},(err,numr)=>{
+        res.send({"msg":"ok"})
+    })
 })
 app.listen(3001, () => { console.log("listening on port 3001") });
