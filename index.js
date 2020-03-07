@@ -9,6 +9,8 @@ let semesterdb = new datastore("./databases/semester.db");
 semesterdb.loadDatabase();
 let facultydb = new datastore("./databases/faculty.db");
 facultydb.loadDatabase();
+let classdb = new datastore("./databases/class.db");
+classdb.loadDatabase();
 let app = express();
 app.use(express.json());
 app.use(express.static("root"));
@@ -158,4 +160,32 @@ app.get("/faculties/:id",(req,res)=>{
     })
 })
 
+app.get("/classes",(req,res)=>{
+    // batchdb.insert({"name":"me"})
+    classdb.find({},(err,docs)=>{
+        if(err){
+            console.log(err)
+            res.send(err);
+        }
+        else{
+            res.send(docs)
+        }
+        
+    })
+    // console.log("1");
+    // res.send([{"name":"ok"}])
+    // res.send(batches)
+})
+
+app.post("/classes/new",(req,res)=>{
+    classdb.insert(req.body,()=>{
+        res.send({"msg":"ok"})
+    })
+})
+
+app.get("/classes/:id",(req,res)=>{
+    classdb.remove({"_id":req.params["id"]},(err,numr)=>{
+        res.send({"msg":"ok"})
+    })
+})
 app.listen(3001, () => { console.log("listening on port 3001") });

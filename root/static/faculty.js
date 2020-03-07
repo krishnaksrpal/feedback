@@ -13,7 +13,7 @@ function febranches(){
         console.log(data)
         branchs = data;
         branchs.forEach(ele => {
-            str += `<option value="${ele[name]}">${ele["name"]}</option>`; 
+            str += `<option value="${ele["name"]}">${ele["name"]}</option>`; 
         });
     })
 }
@@ -23,7 +23,7 @@ function fesems(div){
         sems = data;
         str+=`</select><select class="custom-select" id="sems${subcount}">`
         sems.forEach(ele => {
-            str += `<option value="${ele[name]}">${ele["name"]}</option>`; 
+            str += `<option value="${ele["name"]}">${ele["name"]}</option>`; 
         });
     str += `</select><button id="btn${subcount}" onclick="addsub()" class="btn btn-success">add new</button>
     </div>
@@ -73,7 +73,7 @@ function buttonPressed(i) {
     }
     else {
         //delete
-        feDelete(faculties[(i - 1) / 2]["_id"])
+        feDelete(faculties[(i - 2) / 3]["_id"])
     }
 }
 function feDelete(id) {
