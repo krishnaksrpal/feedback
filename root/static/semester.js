@@ -1,13 +1,13 @@
-let branches;
-function febranches(){
-    fetch("branches").then(res => res.json()).then(data => {
+let semester;
+function fesemester(){
+    fetch("semester").then(res => res.json()).then(data => {
         console.log(data)
-        branches = data;
+        semester = data;
         makeTable(data);
     })
 }
 if (user) {
-    febranches();   
+    fesemester();   
 }
 else {
     location.replace("index.html");
@@ -17,8 +17,8 @@ function makeTable(data){
     let table = document.getElementById("myTable");
     let str = `<tr align="center" class="header">
                       
-    <th>Branch ID</th>
-    <th>Branch Name</th>
+    <th>semester ID</th>
+    <th>semester Name</th>
     <th>Options</th>
 
   </tr>`;
@@ -34,20 +34,20 @@ function makeTable(data){
     table.innerHTML = str;
 }
 function buttonPressed(i){
-    console.log(i,branches,i/2);
+    console.log(i,semester,i/2);
     if(i%2==0){
         //edit
         
     }else{
         //delete
-        feDelete(branches[(i-1)/2]["_id"])
+        feDelete(semester[(i-1)/2]["_id"])
     }
 }
 function feDelete(id){
-    fetch("/branches/"+id).then(res => res.json()).then(data => {
+    fetch("/semester/"+id).then(res => res.json()).then(data => {
         console.log(data)
     })
-    febranches();
+    fesemester();
 }
 let newdiv;
 let btn = document.getElementById("newbtn");
@@ -57,7 +57,7 @@ btn.onclick = () => {
     let area = document.getElementById("area");
     str = "";
     str += "<form id='f2'><div class='row'>"
-    str += `<div class='col-4'><input type="text" id="name" placeholder="Branch Name" class="form-control"></div>`;
+    str += `<div class='col-4'><input type="text" id="name" placeholder="semester Name" class="form-control"></div>`;
     str += "<br><button type='submit'>Submit</button>"
     str += "</form>"
     newdiv= document.createElement("div");
@@ -66,13 +66,13 @@ btn.onclick = () => {
     let form = document.getElementById("f2");
     form.onsubmit = (evt)=>{
         evt.preventDefault();
-        fenewbranch();
+        fenewsemester();
     }
 }
 
 
 
-function fenewbranch(){
+function fenewsemester(){
     let name = document.getElementById("name").value;
     let data = {
         "name" : name
@@ -89,10 +89,10 @@ function fenewbranch(){
     };
     // let data;
     let send;
-    fetch("/branches/new",requestOptions).then(res=>res.json()).then(dat=>{
+    fetch("/semester/new",requestOptions).then(res=>res.json()).then(dat=>{
         send = dat;
         if(send["msg"]=="ok"){
-            febranches();
+            fesemester();
             newdiv.innerHTML = "";
             // let area = document.getElementById("area");
             newdiv.remove();

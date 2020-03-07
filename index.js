@@ -5,6 +5,8 @@ let batchdb = new datastore("./databases/batch.db");
 batchdb.loadDatabase();
 let branchdb = new datastore("./databases/branch.db");
 branchdb.loadDatabase();
+let semesterdb = new datastore("./databases/semester.db");
+semesterdb.loadDatabase();
 let app = express();
 app.use(express.json());
 app.use(express.static("root"));
@@ -96,4 +98,33 @@ app.get("/branches/:id",(req,res)=>{
         res.send({"msg":"ok"})
     })
 })
+app.get("/semester",(req,res)=>{
+    // batchdb.insert({"name":"me"})
+    semesterdb.find({},(err,docs)=>{
+        if(err){
+            console.log(err)
+            res.send(err);
+        }
+        else{
+            res.send(docs)
+        }
+        
+    })
+    // console.log("1");
+    // res.send([{"name":"ok"}])
+    // res.send(batches)
+})
+
+app.post("/semester/new",(req,res)=>{
+    semesterdb.insert(req.body,()=>{
+        res.send({"msg":"ok"})
+    })
+})
+
+app.get("/semester/:id",(req,res)=>{
+    semesterdb.remove({"_id":req.params["id"]},(err,numr)=>{
+        res.send({"msg":"ok"})
+    })
+})
+
 app.listen(3001, () => { console.log("listening on port 3001") });
