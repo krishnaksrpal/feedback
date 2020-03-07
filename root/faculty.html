@@ -17,53 +17,51 @@
 <body class="software-lp">
 
   <!--Main Navigation-->
-  <header>
+  <header id="head">
 
- <!--Navbar-->
+    <!--Navbar-->
     <nav style="background-color: #5991fb" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-      <div style="background-color: #5991fb; " class="container">
-        <a class="navbar-brand" href="#"><strong>S.P.B. Patel Engineering College</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Log in</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="login_account" href="./login.html">Batch</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Branch</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Semester</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Faculty</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Feedback sets</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="signup_logout" href="./signup.html">Parameter sets</a>
-            </li>
-            
-          </ul>
-         </div>
-      </div>
+        <div style="background-color: #5991fb; " class="container">
+            <a class="navbar-brand" href="#"><strong>S.P.B. Patel Engineering College</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="login_account" href="./batch.html">Batch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup_logout" href="./branch.html">Branch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup_logout" href="./semester.html">Semester</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup_logout" href="./faculty.html">Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup_logout" href="./feedbackset.html">Feedback sets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup_logout" href="./parameterset.html">Parameter sets</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
-<!--Nav bar ends-->
+    <!--Nav bar ends-->
 
     <!--Intro Section-->
-    
 
-  </header>
+
+</header>
   <!--Main Navigation-->
 
   <!--Main content-->
@@ -85,23 +83,15 @@
        <section>
 
     <div class="card card-cascade narrower z-depth-1">
-          <div class="col-lg-5 col-md-6">
-            <p>
-              <div style="white-space: nowrap;">
-                <p>Batch: ODD-WINTER-2019 <B>|</B> Branch: CS</P>
-                <P>Semester: V <B>|</B> Division: CLASS A</p>
-                <p>Faculty: Ravindra Patel <B>|</B> Subject: Object Oriented Programming Language</p>
-              </div>
-              </p>
-
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Subject">
-            <button style="height: 31px; width:30px;" class="btn btn-sm btn-primary ml-2 px-1"><i class="fas fa-search"></i> </button>
-          </div>
                 <div style="margin-top: 6px;" class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
   
                          
   
-                         <a href="" class="white-text mx-3">Subject Entries</a>
+                         <a href="" class="white-text mx-3">Branch Entries</a>
+  
+                        <div>
+                          <button type="button" id="newbtn" class="btn btn-outline-white btn-rounded btn-sm px-2"><i class="fas fa-pencil-alt mt-0">&nbsp;Add New</i></button>                        </div>
+  
                  </div>
             <!-- /Card image -->
   
@@ -109,142 +99,51 @@
   
                     <div class="table-responsive">
                           <!-- Table -->
-                      <div style="overflow:auto;height:300px;">
-                        <table border=1 align="center" id="myTable" style="width: 100%;">
+                      <div style="overflow:auto;height:300px;" id="area">
+                        <table border=1 align="center" id="myTable" style="width: 100%">
                           <tr align="center" class="header">
                       
-                            <th>Rating</th>
-                            <th>0's</th>
-                            <th>1's</th>
-                            <th>2's</th>
-                            <th>3's</th>
-                            <th>4's</th>
-                            <th>5's</th>
-                            <th>6's</th>
-                            <th>7's</th>
-                            <th>8's</th>
-                            <th>9's</th>
+                            <th>Branch ID</th>
+                            <th>Branch Name</th>
+                            <th>Options</th>
                           </tr>
   
                            <tr align="center">
                              
   
-                          <td>Subject Knowledge</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
+                          <td>1</td>
+                          <td>CS</td>
+                          
+                          <td><p><button class="btn btn-info btn-rounded btn-sm">EDIT</button>
+                          <button class="btn btn-danger btn-rounded btn-sm">DELETE</button></td>
                         </tr>
-
                         <tr align="center">
                              
   
-                          <td>Teaching skills</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
+                          <td>2</td>
+                          <td>IT</td>
+                          
+                          <td><p><button class="btn btn-info btn-rounded btn-sm">EDIT</button>
+                          <button class="btn btn-danger btn-rounded btn-sm">DELETE</button></td>
                         </tr>
-
                         <tr align="center">
                              
   
-                          <td>Interactive</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
+                          <td>3</td>
+                          <td>ME</td>
+                          
+                          <td><p><button class="btn btn-info btn-rounded btn-sm">EDIT</button>
+                          <button class="btn btn-danger btn-rounded btn-sm">DELETE</button></td>
                         </tr>
-
                         <tr align="center">
                              
   
-                          <td>Interesting</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
-                        </tr>
-
-                        <tr align="center">
-                             
-  
-                          <td>Board Work</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
-                        </tr>
-
-                        <tr align="center">
-                             
-  
-                          <td>Utilization of lecture</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
-                        </tr>
-
-                        <tr align="center">
-                             
-  
-                          <td>Subject Knowledge</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
-                        </tr>
-
-                        <tr align="center">
-                             
-  
-                          <td>Subject Knowledge</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td> <td></td>
-                        </tr>
+                          <td>4</td>
+                          <td>CE</td>
+                          
+                          <td><p><button class="btn btn-info btn-rounded btn-sm">EDIT</button>
+                          <button class="btn btn-danger btn-rounded btn-sm">DELETE</button></td>
+                          </tr> 
                                     
   
                         </table>
@@ -368,7 +267,7 @@
  
    // Loop through all table rows, and hide those who don't match the search query
    for (i = 0; i < tr.length; i++) {
-     td = tr[i].getElementsByTagName("td")[0];
+     td = tr[i].getElementsByTagName("td")[1];
      if (td) {
        txtValue = td.textContent || td.innerText;
        if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -395,7 +294,8 @@
     });
 
   </script>
-
+  <script src="./static/nav.js"></script>
+  <script src="./static/faculty.js"></script>
 </body>
 
 </html>
